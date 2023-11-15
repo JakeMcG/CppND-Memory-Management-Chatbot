@@ -44,7 +44,31 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+// move constr
+ChatBot::ChatBot(ChatBot&& source) {
+    std::cout << "ChatBot Move Ctor" << std::endl;
+    
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
 
+    _image = source._image;
+    source._image = NULL;
+}
+
+// move assgnt
+ChatBot& ChatBot::operator=(ChatBot&& source) {
+    std::cout << "ChatBot Move Assgnt" << std::endl;
+
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
+
+    _image = source._image;
+    source._image = NULL;
+
+    return *this;
+}
 ////
 //// EOF STUDENT CODE
 
