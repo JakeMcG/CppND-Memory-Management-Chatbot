@@ -32,7 +32,7 @@ ChatLogic::~ChatLogic()
     ////
 
     // delete chatbot instance
-    delete _chatBot;
+    // delete _chatBot; no longer owning
 
     // no need to delete nodes because using unique_ptr
 

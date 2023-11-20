@@ -51,6 +51,7 @@ ChatBot::ChatBot(ChatBot&& source) {
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this); // need to update handle in chatLogic after move
 
     _image = source._image;
     source._image = NULL;
@@ -63,6 +64,7 @@ ChatBot& ChatBot::operator=(ChatBot&& source) {
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this); // need to update handle in chatLogic after move
 
     _image = source._image;
     source._image = NULL;
