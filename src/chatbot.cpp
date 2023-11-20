@@ -44,6 +44,34 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+// copy constr
+ChatBot::ChatBot(const ChatBot& source) {
+    std::cout << "ChatBot Copy Ctor" << std::endl;
+    
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this); // need to update handle in chatLogic after move
+
+    _image = new wxBitmap();
+    *_image = *source._image;
+}
+
+// copy assgnt
+ChatBot& ChatBot::operator=(const ChatBot& source) {
+    std::cout << "ChatBot Copy Assgnt" << std::endl;
+
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this); // need to update handle in chatLogic after move
+
+    _image = new wxBitmap();
+    *_image = *source._image;
+
+    return *this;
+}
+
 // move constr
 ChatBot::ChatBot(ChatBot&& source) {
     std::cout << "ChatBot Move Ctor" << std::endl;
